@@ -1,0 +1,17 @@
+<form (ngSubmit)="funcao($event.target)">
+  <input type="text" name="campo" required /><BR /><BR />
+  <input type="text" name="campo2" /><BR /><BR />
+
+  <button type="submit" class="btn btn-primary" >
+    Chamar componente de DETALHES
+  </button>
+</form>
+
+<br />
+
+
+
+
+<br />
+
+<app-detalhes [valor_passado]="campo"></app-detalhes>

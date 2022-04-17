@@ -1,0 +1,65 @@
+<table border="1">
+  <tr>
+    <td>
+      <h3>Interpolation - Componente para o Template - {{obterTexto()}}</h3>
+      <p>O número de cliques é: {{ contadorClique }}</p>
+
+
+      <p [ngClass]="{
+        'text-secondary':contadorClique < 3,
+        'text-success':contadorClique >= 3,
+        'text-warning':contadorClique >= 5,
+        'text-danger':contadorClique >= 9
+      }">O número de cliques é: {{ contadorClique }}</p>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h3>Property Binding - Componente para o Template - []</h3>
+      <button class="btn btn-info" [disabled]="contadorClique >= 10">Info</button>
+      O botão desabihabilta quando o contato >= 10<br>
+      <img [src]="urlImagem" height="50px" width="px">
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h3>Event Binding - Template para o Componente - ()</h3>
+      <button class="btn btn-warning" (click)="adicionarClique()">Adicionar Cliques</button>
+      <button class="btn btn-info" (click)="removerClique()" [disabled]="estadoBotao == false">Remover Cliques</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <h3>Two-way Binding - [()]</h3>
+      Sem ngModel:
+      <input type="text" (keyup)='keyUp($event)' placeholder="Digite seu nome">
+      <br>
+      <label>Seu nome é: {{nome}}    </label>
+
+      <br><br>
+
+      Com ngModel com Property e Event Bind: <input type="text" [ngModel]="nome" (ngModelChange)='nome = $event' placeholder="Digite seu nome">
+      <br>
+      <label>Seu nome é: {{nome}}    </label>
+
+      <br><br>
+
+      Com ngModel com 2WayBind: <input type="text" [(ngModel)]="nome"  placeholder="Digite seu nome">
+      <br>
+      <label class="{{nome}}">Seu nome é: {{nome}}    </label><br>
+
+      <label [ngClass]="nome">Seu nome é: {{nome}}    </label>
+
+
+    </td>
+  </tr>
+
+
+
+
+
+</table>
