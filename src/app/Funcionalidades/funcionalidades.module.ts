@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { DetalhesComponent } from './home/detalhes/detalhes.component';
 import { ContatoComponent } from './contato/contato.component';
 import { ListaProdutoComponent } from './produtos/listar-produto/lista-produto.component';
-import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { CadComponent } from './cad/cad.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +29,6 @@ registerLocaleData(localPt);
     DetalhesComponent,
     ContatoComponent,
     ListaProdutoComponent,
-    ReactiveFormsComponent,
     CadComponent,
     TesteComponent,
     ObservableUnsubcriberComponent,
@@ -40,9 +38,9 @@ registerLocaleData(localPt);
   ],
   imports: [
     CommonModule,
-    FormsModule,
     HttpClientModule,
     FuncionalidadesRoutingModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [ProdutoService],
