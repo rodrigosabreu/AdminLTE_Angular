@@ -13,7 +13,6 @@ import { Observables2Component } from './observables2/observables2.component';
 import { PromisesComponent } from './promises/promises.component';
 import { Cad2Component } from './cad2/cad2.component';
 import { Cad3Component } from './cad3/cad3.component';
-import { FormDinamicoComponent } from './form-dinamico/form-dinamico.component';
 
 const routes: Routes = [
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'cad', component: CadComponent },
   { path: 'cad2', component: Cad2Component },
   { path: 'cad3', component: Cad3Component },
-  { path: 'form-dinamico', component: FormDinamicoComponent },
   { path: 'produtos-detalhe/:id', component: ListaProdutoComponent },
   { path: 'observable-unsubcriber', component: ObservableUnsubcriberComponent },
   { path: 'observables', component: ObservablesComponent },
