@@ -26,6 +26,8 @@ import { NgModule } from '@angular/core';
 import { NgBrazil } from 'ng-brazil';
 import { TextMaskModule } from 'angular2-text-mask';
 import { CustomFormsModule } from 'ng2-validation';
+import { Cad3Component } from './cad3/cad3.component';
+import { FormDinamicoComponent } from './form-dinamico/form-dinamico.component';
 registerLocaleData(localPt);
 
 
@@ -45,6 +47,8 @@ registerLocaleData(localPt);
     PromisesComponent,
     CadComponent,
     Cad2Component,
+    Cad3Component,
+    FormDinamicoComponent,
   ],
   imports: [
     CommonModule,
