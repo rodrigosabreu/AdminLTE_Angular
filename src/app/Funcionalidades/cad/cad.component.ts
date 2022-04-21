@@ -19,8 +19,8 @@ export class CadComponent implements OnInit {
     //this.cadastroForm = new FormGroup({//fazer ligacao do formGroup com o form no html
 
     this.cadastroForm = this.fb.group({
-      nome: ['', Validators.required],
-      cpf: ['', Validators.required],
+      nome:  ['', Validators.required],
+      cpf:   ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required],
       senhaConfirmacao: ['', Validators.required],

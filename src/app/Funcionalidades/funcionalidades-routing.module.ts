@@ -11,6 +11,7 @@ import { ListaProdutoComponent } from './produtos/listar-produto/lista-produto.c
 import { SimulacaoCgiComponent } from './simulacao-cgi/simulacao-cgi.component';
 import { Observables2Component } from './observables2/observables2.component';
 import { PromisesComponent } from './promises/promises.component';
+import { Cad2Component } from './cad2/cad2.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'contato', component: ContatoComponent },
   { path: 'produtos', component: ListaProdutoComponent },
   { path: 'cad', component: CadComponent },
+  { path: 'cad2', component: Cad2Component },
   { path: 'produtos-detalhe/:id', component: ListaProdutoComponent },
   { path: 'observable-unsubcriber', component: ObservableUnsubcriberComponent },
   { path: 'observables', component: ObservablesComponent },

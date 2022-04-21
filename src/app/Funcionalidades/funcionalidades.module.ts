@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SimulacaoCgiComponent } from './simulacao-cgi/simulacao-cgi.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
@@ -7,19 +6,29 @@ import { DetalhesComponent } from './home/detalhes/detalhes.component';
 import { ContatoComponent } from './contato/contato.component';
 import { ListaProdutoComponent } from './produtos/listar-produto/lista-produto.component';
 import { CadComponent } from './cad/cad.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TesteComponent } from './teste/teste.component';
 import { FuncionalidadesRoutingModule } from './funcionalidades-routing.module';
 import { ProdutoService } from '../Servicos/Prodduto/produto.service';
 
-import { registerLocaleData } from '@angular/common';
-import localPt from '@angular/common/locales/pt';
+
 import { ObservableUnsubcriberComponent } from './observable-unsubcriber/observable-unsubcriber.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { Observables2Component } from './observables2/observables2.component';
 import { PromisesComponent } from './promises/promises.component';
+import { Cad2Component } from './cad2/cad2.component';
+
+
+import { registerLocaleData } from '@angular/common';
+import localPt from '@angular/common/locales/pt';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { NgBrazil } from 'ng-brazil';
+import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation';
 registerLocaleData(localPt);
+
+
 
 @NgModule({
   declarations: [
@@ -29,19 +38,23 @@ registerLocaleData(localPt);
     DetalhesComponent,
     ContatoComponent,
     ListaProdutoComponent,
-    CadComponent,
     TesteComponent,
     ObservableUnsubcriberComponent,
     ObservablesComponent,
     Observables2Component,
     PromisesComponent,
+    CadComponent,
+    Cad2Component,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FuncionalidadesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgBrazil,
+    TextMaskModule,
+    CustomFormsModule
   ],
   providers: [ProdutoService],
 })
