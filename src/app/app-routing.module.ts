@@ -17,16 +17,9 @@ export const routes: Routes = [
           import('./Funcionalidades/funcionalidades.module').then(
             (m) => m.FuncionalidadesModule
           ),
-      },
+      }
 
 
-      {
-        path: 'imobi',
-        loadChildren: () =>
-          import('./Funcionalidades2/funcionalidades2.module').then(
-            (m) => m.Funcionalidades2Module
-          ),
-      },
 
 
     ],

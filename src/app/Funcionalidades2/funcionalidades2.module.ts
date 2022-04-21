@@ -16,8 +16,6 @@ registerLocaleData(localPt);
 
 @NgModule({
   declarations: [
-
-  
     SimulacaoImobiComponent
   ],
   imports: [
@@ -26,6 +24,9 @@ registerLocaleData(localPt);
     HttpClientModule,
     Funcionalidades2RoutingModule,
     ReactiveFormsModule
+  ],
+  exports :[
+    SimulacaoImobiComponent
   ],
   providers: [ProdutoService],
 })

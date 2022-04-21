@@ -4,7 +4,7 @@ import { SimulacaoImobiComponent } from './simulacao-imobi/simulacao-imobi.compo
 
 const routes: Routes = [
 
-   //{ path: 'simulacao-imobi', component: SimulacaoImobiComponent },
+   { path: 'simulacao-imobi', component: SimulacaoImobiComponent },
 
   // {path: 'home', component: HomeComponent,
   //   children: [{
@@ -12,14 +12,14 @@ const routes: Routes = [
   //     }]
   // }
 
-  {
-    path: '',  data: { title: 'Imobi' },
-      children: [
-        {path: '', redirectTo: 'simulacao'},
-        {path: 'simulacao', component: SimulacaoImobiComponent, data: { title: 'simulacao-imobi'}},
+  // {
+  //   path: '',  data: { title: 'Imobi' },
+  //     children: [
+  //       {path: '', redirectTo: 'simulacao'},
+  //       {path: 'simulacao', component: SimulacaoImobiComponent, data: { title: 'simulacao-imobi'}},
 
-      ]
-  }
+  //     ]
+  // }
 
 ];
 
