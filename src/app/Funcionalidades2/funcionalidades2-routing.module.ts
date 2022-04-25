@@ -6,21 +6,6 @@ const routes: Routes = [
 
    { path: 'simulacao-imobi', component: SimulacaoImobiComponent },
 
-  // {path: 'home', component: HomeComponent,
-  //   children: [{
-  //       path: 'detalhes', component: DetalhesComponent,
-  //     }]
-  // }
-
-  // {
-  //   path: '',  data: { title: 'Imobi' },
-  //     children: [
-  //       {path: '', redirectTo: 'simulacao'},
-  //       {path: 'simulacao', component: SimulacaoImobiComponent, data: { title: 'simulacao-imobi'}},
-
-  //     ]
-  // }
-
 ];
 
 @NgModule({

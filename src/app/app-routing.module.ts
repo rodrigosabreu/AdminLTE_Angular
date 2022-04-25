@@ -1,5 +1,7 @@
+import { HomeComponent } from './Funcionalidades/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetalhesComponent } from './Funcionalidades/home/detalhes/detalhes.component';
 
 
 export const routes: Routes = [
@@ -8,6 +10,10 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+
+
+
+
   {
     path: '',
     children: [
@@ -18,12 +24,34 @@ export const routes: Routes = [
             (m) => m.FuncionalidadesModule
           ),
       }
-
-
-
-
     ],
   },
+
+
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./Funcionalidades2/funcionalidades2.module').then(
+            (m) => m.Funcionalidades2Module
+          ),
+      }
+    ],
+  },
+
+
+
+
+  {
+    path: 'produto-lazy-loading',
+        loadChildren: () => import('./lazy-loading/produto.module')
+        .then((m) => m.ProdutoModule),
+  },
+
+
+
 ];
 
 @NgModule({
