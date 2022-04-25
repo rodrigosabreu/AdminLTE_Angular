@@ -5,6 +5,7 @@
 			"nome": "Mouse microsoft",
 			"valor": 15.90,
 			"promocao": false,
+      "ativo": true,
 			"valorPromo": 0,
 			"imagem": "mouse.jpg"
 		},
@@ -13,6 +14,7 @@
 			"nome": "Teclado microsoft",
 			"valor": 30.00,
 			"promocao": false,
+      "ativo": true,
 			"valorPromo": 0,
 			"imagem": "teclado.jpg"
 		},
@@ -21,6 +23,7 @@
 			"nome": "Monitor Samsung",
 			"valor": 250.00,
 			"promocao": false,
+      "ativo": true,
 			"valorPromo": 0,
 			"imagem": "monitor.jpg"
 		},
@@ -29,6 +32,7 @@
 			"nome": "Laptop Asus",
 			"valor": 3000.00,
 			"promocao": false,
+      "ativo": false,
 			"valorPromo": 0,
 			"imagem": "laptop.jpg"
 		}

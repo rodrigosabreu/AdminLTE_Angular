@@ -5,4 +5,5 @@ export class Produto {
   promocao!: string;
   valorPromo!: string;
   imagem!: string;
+  ativo!: boolean;
 }

@@ -27,6 +27,9 @@ import { NgBrazil } from 'ng-brazil';
 import { TextMaskModule } from 'angular2-text-mask';
 import { CustomFormsModule } from 'ng2-validation';
 import { Cad3Component } from './cad3/cad3.component';
+import { ProdutosComponentesComponent } from './produtos-componentes/produtos-componentes.component';
+import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/produto-card-detalhe.component';
+import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
 registerLocaleData(localPt);
 
 
@@ -47,6 +50,9 @@ registerLocaleData(localPt);
     CadComponent,
     Cad2Component,
     Cad3Component,
+    ProdutosComponentesComponent,
+    ProdutoCardDetalheComponent,
+    ProdutoCountComponent,
   ],
   imports: [
     CommonModule,
