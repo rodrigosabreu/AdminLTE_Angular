@@ -58,24 +58,40 @@
             <label>Cidade</label>
             <!-- <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]=EnderecoRecebido.localidade  formControlName="localidade"> -->
 
-            <select class="form-control "  [(ngModel)]="enderecoObj.localidade" formControlName="localidade" >
-                        <option value="Selecione">SELECIONE A CIDADE</option>
+            <select class="form-control "  [(ngModel)]="enderecoObj.localidade" formControlName="localidade"
+
+            [ngClass]="{'is-invalid': enderecoObj.localidade === '', 'is-valid': cadastroForm.get('localidade')?.valid}"
+
+            >
+                        <option value="">SELECIONE A CIDADE</option>
                         <option value="Suzano">SUZANO</option>
                         <option value="Mogi das Cruzes">MOGI DAS CRUZES</option>
                         <option value="Campos Gerais">CAMPOS GERAIS</option>
             </select>
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('localidade')?.errors?.['required'] && (cadastroForm.get('localidade').dirty  || cadastroForm.get('localidade').touched)">
+            <p >Selecione o campo Cidade</p>
+            </span>
            </div>
         </div>
         <div class="row">
-          <div class="form-group col-md-1">
+          <div class="form-group col-md-2">
             <label>UF</label>
             <!-- <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]=EnderecoRecebido.uf  formControlName="uf"> -->
-            <select class="form-control "  [(ngModel)]="enderecoObj.uf" (ngModelChange)="trocarEstado($event)" formControlName="uf" >
-              <option value="Selecione">-</option>
+            <select class="form-control "  [(ngModel)]="enderecoObj.uf" (ngModelChange)="trocarEstado($event)" formControlName="uf"
+
+            [ngClass]="{'is-invalid': enderecoObj.uf === '', 'is-valid': cadastroForm.get('uf')?.valid}"
+
+            >
+              <option value="">-</option>
               <option value="SP">SP</option>
               <option value="MG">MG</option>
 
             </select>
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('uf')?.errors?.['required'] && (cadastroForm.get('uf').dirty  || cadastroForm.get('uf').touched)">
+            <p >Selecione o campo Estado</p>
+            </span>
           </div>
           <div class="form-group col-md-3">
             <label>IBGE</label>
@@ -86,7 +102,7 @@
             <input type="text" class="form-control" placeholder="GIA" [(ngModel)]="enderecoObj.gia" formControlName="gia">
           </div>
 
-          <div class="form-group  col-md-3">
+          <div class="form-group  col-md-2">
             <label>DDD</label>
             <input type="text" class="form-control" placeholder="DDD" [(ngModel)]="enderecoObj.ddd" formControlName="ddd">
           </div>

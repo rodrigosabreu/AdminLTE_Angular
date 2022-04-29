@@ -31,7 +31,8 @@ registerLocaleData(localPt);
     FormsModule,
     HttpClientModule,
     Funcionalidades2RoutingModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ReactiveFormsModule,
+
 
   ],
   exports :[

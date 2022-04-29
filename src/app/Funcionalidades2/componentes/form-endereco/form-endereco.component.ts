@@ -1,17 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
 import { Endereco } from 'src/app/models/endereco';
 
 @Component({
   selector: 'app-form-endereco',
   templateUrl: './form-endereco.component.html',
-  styleUrls: ['./form-endereco.component.sass']
+  styleUrls: ['./form-endereco.component.sass'],
 })
 export class FormEnderecoComponent implements OnInit {
-
   //@Input() enderecoObjDoComponente: Endereco;
-  @Input() set enderecoObjDoComponente (end: Endereco)
-  {
+  @Input() set enderecoObjDoComponente(end: Endereco) {
     this.enderecoObj = end;
     console.log(end);
   }
@@ -19,20 +18,21 @@ export class FormEnderecoComponent implements OnInit {
   cadastroForm: FormGroup;
   enderecoObj: Endereco;
 
-  constructor(private fb: FormBuilder) {
-
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.configuraValidacaoForm();
     console.log(this.enderecoObjDoComponente);
   }
 
-  ngAfterViewInit(){
-  }
+  ngAfterViewInit() {}
+
+
 
   configuraValidacaoForm() {
     this.limparCampos();
+
+    let localidadeValidacao = new FormControl('', [Validators.required]);
 
     this.cadastroForm = this.fb.group({
       logradouro: ['', [Validators.required]],
@@ -45,17 +45,15 @@ export class FormEnderecoComponent implements OnInit {
       localidade: ['', [Validators.required]],
       uf: ['', [Validators.required]],
     });
-
   }
   limparCampos() {
     this.enderecoObj = new Endereco();
-    this.enderecoObj.localidade = "Selecione"
-    this.enderecoObj.uf = "Selecione"
+    this.enderecoObj.localidade = 'Selecione';
+    this.enderecoObj.uf = 'Selecione';
   }
-  trocarEstado(uf: string){
-    if(uf === 'Selecione')this.enderecoObj.localidade = 'Selecione';
-    if(uf === 'SP')this.enderecoObj.localidade = 'Suzano';
-    if(uf === 'MG')this.enderecoObj.localidade = 'Campos Gerais';
+  trocarEstado(uf: string) {
+    if (uf === 'Selecione') this.enderecoObj.localidade = 'Selecione';
+    if (uf === 'SP') this.enderecoObj.localidade = 'Suzano';
+    if (uf === 'MG') this.enderecoObj.localidade = 'Campos Gerais';
   }
-
 }
