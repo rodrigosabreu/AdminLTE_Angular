@@ -14,13 +14,17 @@ import { SimulacaoImobiComponent } from './simulacao-imobi/simulacao-imobi.compo
 import { ConsultaCepComponent } from './consulta-cep/consulta-cep.component';
 import { CepService } from '../Servicos/Cep/cep.service';
 import { CustomFormsModule } from 'ng2-validation';
+import { ConsultaCep2Component } from './consulta-cep2/consulta-cep2.component';
+import { FormEnderecoComponent } from './componentes/form-endereco/form-endereco.component';
 
 registerLocaleData(localPt);
 
 @NgModule({
   declarations: [
     SimulacaoImobiComponent,
-    ConsultaCepComponent
+    ConsultaCepComponent,
+    ConsultaCep2Component,
+    FormEnderecoComponent
   ],
   imports: [
     CommonModule,
