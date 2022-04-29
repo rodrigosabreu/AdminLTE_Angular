@@ -1,3 +1,4 @@
+import { JoComponent } from './jo/jo.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { ObservableUnsubcriberComponent } from './observable-unsubcriber/observable-unsubcriber.component';
 import { NgModule } from '@angular/core';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'observables', component: ObservablesComponent },
   { path: 'observables2', component: Observables2Component },
   { path: 'promises', component: PromisesComponent },
+  { path: 'jo', component: JoComponent },
 
   {path: 'home', component: HomeComponent,
     children: [{

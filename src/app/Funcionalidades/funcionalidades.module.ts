@@ -30,6 +30,7 @@ import { Cad3Component } from './cad3/cad3.component';
 import { ProdutosComponentesComponent } from './produtos-componentes/produtos-componentes.component';
 import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/produto-card-detalhe.component';
 import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
+import { JoComponent } from './jo/jo.component';
 registerLocaleData(localPt);
 
 
@@ -53,6 +54,7 @@ registerLocaleData(localPt);
     ProdutosComponentesComponent,
     ProdutoCardDetalheComponent,
     ProdutoCountComponent,
+    JoComponent,
   ],
   imports: [
     CommonModule,
