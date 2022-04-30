@@ -17,6 +17,8 @@ import { CustomFormsModule } from 'ng2-validation';
 import { ConsultaCep2Component } from './consulta-cep2/consulta-cep2.component';
 import { FormEnderecoComponent } from './componentes/form-endereco/form-endereco.component';
 import { LoadingComponent } from './componentes/loading/loading.component';
+import { PropostasComponent } from './propostas/propostas.component';
+import { ListaPropostasService } from '../Servicos/Proposta/lista-propostas.service';
 
 registerLocaleData(localPt);
 
@@ -26,7 +28,8 @@ registerLocaleData(localPt);
     ConsultaCepComponent,
     ConsultaCep2Component,
     FormEnderecoComponent,
-    LoadingComponent
+    LoadingComponent,
+    PropostasComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ registerLocaleData(localPt);
   ],
   providers: [
     ProdutoService,
-    CepService
+    CepService,
+    ListaPropostasService
   ],
 })
 export class Funcionalidades2Module {}
