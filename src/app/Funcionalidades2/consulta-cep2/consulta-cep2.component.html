@@ -21,7 +21,14 @@
       </div>
   </div>
 </div>
-<app-form-endereco [enderecoObjDoComponente]="enderecoObj"></app-form-endereco>
+<app-form-endereco
+  [enderecoObjDoComponente]="enderecoObj"
+  (enviarParaOPaiEmit)="GravarEndereco($event)">
+</app-form-endereco>
+
+
+
+
 
 
 

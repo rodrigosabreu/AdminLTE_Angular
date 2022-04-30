@@ -11,12 +11,10 @@
         <div class="row">
             <div class="form-group col-md-6">
               <label>ENDEREÇO</label>
-              <input type="text" class="form-control" placeholder="Endereço" id="logradouro" formControlName="logradouro"
-
-              [(ngModel)]="enderecoObj.logradouro"
-
-              [ngClass]="{'is-invalid': cadastroForm.get('logradouro').errors && (cadastroForm.get('logradouro').dirty  || cadastroForm.get('logradouro').touched)}"
-
+              <input type="text" class="form-control" placeholder="Endereço" id="logradouro"
+                formControlName="logradouro"
+                [(ngModel)]="enderecoObj.logradouro"
+                [ngClass]="{'is-invalid': cadastroForm.get('logradouro').errors && (cadastroForm.get('logradouro').dirty  || cadastroForm.get('logradouro').touched)}"
               />
 
               <span class="text-danger"
@@ -25,95 +23,140 @@
               </span>
             </div>
 
+
+
             <div class="form-group col-md-6">
               <label>COMPLEMENTO</label>
-              <input type="text" class="form-control" placeholder="Complemento" id="complemento" formControlName="complemento"
-
-              [ngClass]="{'is-invalid': cadastroForm.get('complemento').errors?.['required'] && (cadastroForm.get('complemento').dirty  || cadastroForm.get('complemento').touched)}"/>
+              <input type="text" class="form-control" placeholder="Complemento" id="complemento"
+                formControlName="complemento"
+                [ngClass]="{'is-invalid': cadastroForm.get('complemento').errors?.['required'] && (cadastroForm.get('complemento').dirty  || cadastroForm.get('complemento').touched)}"
+              />
 
               <span class="text-danger"
               *ngIf="cadastroForm.get('complemento')?.errors?.['required'] && (cadastroForm.get('complemento').dirty  || cadastroForm.get('complemento').touched)">
               <p >Preencha o campo Complemento</p>
               </span>
-
             </div>
           </div>
+
+
 
           <div class="row">
             <div class="form-group col-md-6">
             <label>Bairro</label>
-            <input type="text" class="form-control" placeholder="Bairro" id="bairro" formControlName="bairro"
-
-            [(ngModel)]="enderecoObj.bairro"
-
-            [ngClass]="{'is-invalid': cadastroForm.get('bairro').errors?.['required'] && (cadastroForm.get('bairro').dirty  || cadastroForm.get('bairro').touched)}"/>
+            <input type="text" class="form-control" placeholder="Bairro" id="bairro"
+              formControlName="bairro"
+              [(ngModel)]="enderecoObj.bairro"
+              [ngClass]="{'is-invalid': cadastroForm.get('bairro').errors?.['required'] && (cadastroForm.get('bairro').dirty  || cadastroForm.get('bairro').touched)}"
+            />
 
             <span class="text-danger"
             *ngIf="cadastroForm.get('bairro')?.errors?.['required'] && (cadastroForm.get('bairro').dirty  || cadastroForm.get('bairro').touched)">
             <p >Preencha o campo Bairro</p>
             </span>
-
           </div>
+
+
+
           <div class="form-group  col-md-6">
             <label>Cidade</label>
-            <!-- <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]=EnderecoRecebido.localidade  formControlName="localidade"> -->
-
-            <select class="form-control "  [(ngModel)]="enderecoObj.localidade" formControlName="localidade"
-
-            [ngClass]="{'is-invalid': enderecoObj.localidade === '', 'is-valid': cadastroForm.get('localidade')?.valid}"
-
+            <select class="form-control "
+              [(ngModel)]="enderecoObj.localidade"
+              formControlName="localidade"
+              [ngClass]="{'is-invalid': enderecoObj.localidade === '', 'is-valid': cadastroForm.get('localidade')?.valid}"
             >
                         <option value="">SELECIONE A CIDADE</option>
                         <option value="Suzano">SUZANO</option>
                         <option value="Mogi das Cruzes">MOGI DAS CRUZES</option>
                         <option value="Campos Gerais">CAMPOS GERAIS</option>
             </select>
+
+
             <span class="text-danger"
             *ngIf="cadastroForm.get('localidade')?.errors?.['required'] && (cadastroForm.get('localidade').dirty  || cadastroForm.get('localidade').touched)">
             <p >Selecione o campo Cidade</p>
             </span>
            </div>
         </div>
+
+
+
+
         <div class="row">
           <div class="form-group col-md-2">
             <label>UF</label>
-            <!-- <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]=EnderecoRecebido.uf  formControlName="uf"> -->
-            <select class="form-control "  [(ngModel)]="enderecoObj.uf" (ngModelChange)="trocarEstado($event)" formControlName="uf"
-
-            [ngClass]="{'is-invalid': enderecoObj.uf === '', 'is-valid': cadastroForm.get('uf')?.valid}"
-
+            <select class="form-control "
+              [(ngModel)]="enderecoObj.uf"
+              (ngModelChange)="trocarEstado($event)"
+              formControlName="uf"
+              [ngClass]="{'is-invalid': enderecoObj.uf === '', 'is-valid': cadastroForm.get('uf')?.valid}"
             >
               <option value="">-</option>
               <option value="SP">SP</option>
               <option value="MG">MG</option>
-
             </select>
+
+
             <span class="text-danger"
             *ngIf="cadastroForm.get('uf')?.errors?.['required'] && (cadastroForm.get('uf').dirty  || cadastroForm.get('uf').touched)">
             <p >Selecione o campo Estado</p>
             </span>
           </div>
+
+
+
+
           <div class="form-group col-md-3">
             <label>IBGE</label>
-            <input type="text" class="form-control" placeholder="IBGE" [(ngModel)]="enderecoObj.ibge" formControlName="ibge">
+            <input type="text" class="form-control" placeholder="IBGE"
+              [(ngModel)]="enderecoObj.ibge"
+              formControlName="ibge"
+              [ngClass]="{'is-invalid': cadastroForm.get('ibge').errors?.['required'] && (cadastroForm.get('ibge').dirty  || cadastroForm.get('ibge').touched)}"
+            >
+
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('ibge')?.errors?.['required'] && (cadastroForm.get('ibge').dirty  || cadastroForm.get('ibge').touched)">
+            <p >Preencha o campo IBGE</p>
+            </span>
           </div>
+
+
           <div class="form-group col-md-3">
             <label>GIA</label>
-            <input type="text" class="form-control" placeholder="GIA" [(ngModel)]="enderecoObj.gia" formControlName="gia">
+            <input type="text" class="form-control" placeholder="GIA" [(ngModel)]="enderecoObj.gia" formControlName="gia"
+            [ngClass]="{'is-invalid': cadastroForm.get('gia').errors?.['required'] && (cadastroForm.get('gia').dirty  || cadastroForm.get('gia').touched)}"
+            >
+
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('gia')?.errors?.['required'] && (cadastroForm.get('gia').dirty  || cadastroForm.get('gia').touched)">
+            <p >Preencha o campo GIA</p>
+            </span>
           </div>
 
           <div class="form-group  col-md-2">
             <label>DDD</label>
-            <input type="text" class="form-control" placeholder="DDD" [(ngModel)]="enderecoObj.ddd" formControlName="ddd">
+            <input type="text" class="form-control" placeholder="DDD" [(ngModel)]="enderecoObj.ddd" formControlName="ddd"
+            [ngClass]="{'is-invalid': cadastroForm.get('ddd').errors?.['required'] && (cadastroForm.get('ddd').dirty  || cadastroForm.get('ddd').touched)}">
+
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('ddd')?.errors?.['required'] && (cadastroForm.get('ddd').dirty  || cadastroForm.get('ddd').touched)">
+            <p >Preencha o campo DDD</p>
+            </span>
           </div>
 
           <div class="form-group col-md-2">
             <label>SIAFI</label>
-            <input type="text" class="form-control" placeholder="SIAFI" [(ngModel)]="enderecoObj.siafi" formControlName="siafi">
+            <input type="text" class="form-control" placeholder="SIAFI" [(ngModel)]="enderecoObj.siafi" formControlName="siafi"
+            [ngClass]="{'is-invalid': cadastroForm.get('siafi').errors?.['required'] && (cadastroForm.get('siafi').dirty  || cadastroForm.get('siafi').touched)}">
+
+            <span class="text-danger"
+            *ngIf="cadastroForm.get('siafi')?.errors?.['required'] && (cadastroForm.get('siafi').dirty  || cadastroForm.get('siafi').touched)">
+            <p >Preencha o campo SIAFI</p>
+            </span>
           </div>
 
           <div class="form-group col-md-2">
-            <button class="btn btn-success">CADASTRAR</button>
+            <button class="btn btn-success" [disabled]="!cadastroForm.valid" (click)="EnviarParaOPaiCadEndereco()">CADASTRAR</button>
           </div>
         </div>
 

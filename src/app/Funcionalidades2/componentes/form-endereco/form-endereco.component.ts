@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators } from 'ng2-validation';
 import { Endereco } from 'src/app/models/endereco';
 
 @Component({
@@ -14,6 +13,9 @@ export class FormEnderecoComponent implements OnInit {
     this.enderecoObj = end;
     console.log(end);
   }
+
+   //enviar dado para o Pai
+   @Output() enviarParaOPaiEmit: EventEmitter<Endereco> = new EventEmitter();
 
   cadastroForm: FormGroup;
   enderecoObj: Endereco;
@@ -56,4 +58,11 @@ export class FormEnderecoComponent implements OnInit {
     if (uf === 'SP') this.enderecoObj.localidade = 'Suzano';
     if (uf === 'MG') this.enderecoObj.localidade = 'Campos Gerais';
   }
+
+  EnviarParaOPaiCadEndereco()
+  {
+    this.enviarParaOPaiEmit.emit(this.enderecoObj);
+  }
+
+
 }

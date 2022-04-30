@@ -52,7 +52,10 @@ export class ConsultaCep2Component implements OnInit {
 
 
 
-
+  GravarEndereco(event: Endereco)
+  {
+    alert(event.localidade);
+  }
 
 
 }
