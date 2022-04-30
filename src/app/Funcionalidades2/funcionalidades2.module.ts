@@ -16,6 +16,7 @@ import { CepService } from '../Servicos/Cep/cep.service';
 import { CustomFormsModule } from 'ng2-validation';
 import { ConsultaCep2Component } from './consulta-cep2/consulta-cep2.component';
 import { FormEnderecoComponent } from './componentes/form-endereco/form-endereco.component';
+import { LoadingComponent } from './componentes/loading/loading.component';
 
 registerLocaleData(localPt);
 
@@ -24,7 +25,8 @@ registerLocaleData(localPt);
     SimulacaoImobiComponent,
     ConsultaCepComponent,
     ConsultaCep2Component,
-    FormEnderecoComponent
+    FormEnderecoComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,

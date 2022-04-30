@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-12">
 <form novalidate [formGroup]="cadastroForm">
@@ -15,6 +16,8 @@
                 formControlName="logradouro"
                 [(ngModel)]="enderecoObj.logradouro"
                 [ngClass]="{'is-invalid': cadastroForm.get('logradouro').errors && (cadastroForm.get('logradouro').dirty  || cadastroForm.get('logradouro').touched)}"
+                [ngClass]="{'is-valid': cadastroForm.get('logradouro')?.valid}"
+
               />
 
               <span class="text-danger"
@@ -30,6 +33,7 @@
               <input type="text" class="form-control" placeholder="Complemento" id="complemento"
                 formControlName="complemento"
                 [ngClass]="{'is-invalid': cadastroForm.get('complemento').errors?.['required'] && (cadastroForm.get('complemento').dirty  || cadastroForm.get('complemento').touched)}"
+                [ngClass]="{'is-valid': cadastroForm.get('complemento')?.valid}"
               />
 
               <span class="text-danger"
@@ -48,6 +52,7 @@
               formControlName="bairro"
               [(ngModel)]="enderecoObj.bairro"
               [ngClass]="{'is-invalid': cadastroForm.get('bairro').errors?.['required'] && (cadastroForm.get('bairro').dirty  || cadastroForm.get('bairro').touched)}"
+              [ngClass]="{'is-valid': cadastroForm.get('bairro')?.valid}"
             />
 
             <span class="text-danger"
@@ -64,6 +69,7 @@
               [(ngModel)]="enderecoObj.localidade"
               formControlName="localidade"
               [ngClass]="{'is-invalid': enderecoObj.localidade === '', 'is-valid': cadastroForm.get('localidade')?.valid}"
+
             >
                         <option value="">SELECIONE A CIDADE</option>
                         <option value="Suzano">SUZANO</option>
@@ -112,6 +118,7 @@
               [(ngModel)]="enderecoObj.ibge"
               formControlName="ibge"
               [ngClass]="{'is-invalid': cadastroForm.get('ibge').errors?.['required'] && (cadastroForm.get('ibge').dirty  || cadastroForm.get('ibge').touched)}"
+              [ngClass]="{'is-valid': cadastroForm.get('ibge')?.valid}"
             >
 
             <span class="text-danger"
@@ -125,6 +132,7 @@
             <label>GIA</label>
             <input type="text" class="form-control" placeholder="GIA" [(ngModel)]="enderecoObj.gia" formControlName="gia"
             [ngClass]="{'is-invalid': cadastroForm.get('gia').errors?.['required'] && (cadastroForm.get('gia').dirty  || cadastroForm.get('gia').touched)}"
+            [ngClass]="{'is-valid': cadastroForm.get('gia')?.valid}"
             >
 
             <span class="text-danger"
@@ -136,7 +144,9 @@
           <div class="form-group  col-md-2">
             <label>DDD</label>
             <input type="text" class="form-control" placeholder="DDD" [(ngModel)]="enderecoObj.ddd" formControlName="ddd"
-            [ngClass]="{'is-invalid': cadastroForm.get('ddd').errors?.['required'] && (cadastroForm.get('ddd').dirty  || cadastroForm.get('ddd').touched)}">
+            [ngClass]="{'is-invalid': cadastroForm.get('ddd').errors?.['required'] && (cadastroForm.get('ddd').dirty  || cadastroForm.get('ddd').touched)}"
+            [ngClass]="{'is-valid': cadastroForm.get('ddd')?.valid}">
+
 
             <span class="text-danger"
             *ngIf="cadastroForm.get('ddd')?.errors?.['required'] && (cadastroForm.get('ddd').dirty  || cadastroForm.get('ddd').touched)">
@@ -147,7 +157,8 @@
           <div class="form-group col-md-2">
             <label>SIAFI</label>
             <input type="text" class="form-control" placeholder="SIAFI" [(ngModel)]="enderecoObj.siafi" formControlName="siafi"
-            [ngClass]="{'is-invalid': cadastroForm.get('siafi').errors?.['required'] && (cadastroForm.get('siafi').dirty  || cadastroForm.get('siafi').touched)}">
+            [ngClass]="{'is-invalid': cadastroForm.get('siafi').errors?.['required'] && (cadastroForm.get('siafi').dirty  || cadastroForm.get('siafi').touched)}"
+            [ngClass]="{'is-valid': cadastroForm.get('siafi')?.valid}">
 
             <span class="text-danger"
             *ngIf="cadastroForm.get('siafi')?.errors?.['required'] && (cadastroForm.get('siafi').dirty  || cadastroForm.get('siafi').touched)">

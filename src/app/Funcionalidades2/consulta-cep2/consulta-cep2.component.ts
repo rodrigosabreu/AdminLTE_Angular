@@ -17,6 +17,7 @@ export class ConsultaCep2Component implements OnInit {
   txt_cep = new FormControl('08676250', [Validators.required]);
 
   enderecoObj: Endereco;
+  loading: boolean;
 
 
   constructor(
@@ -25,6 +26,7 @@ export class ConsultaCep2Component implements OnInit {
   ) {}
 
   consultarCEP() {
+    this.loading = true;
     setTimeout(() => {
       console.log("=======> Iniciando requisição de CEP")
       this.cepService.obterEndereco(this.txt_cep.value).subscribe({
@@ -33,13 +35,15 @@ export class ConsultaCep2Component implements OnInit {
           //console.log(this.enderecoObj);
         },
         error: (erro) => {
+          this.loading = false;
           console.log('Erro consultar o CEP');
         },
         complete: () => {
+          this.loading = false;
           console.log("=======> Requisição de CEP Completada")
         },
       });
-    }, 0);
+    }, 1000);
   }
 
   ngAfterContentChecked() {
