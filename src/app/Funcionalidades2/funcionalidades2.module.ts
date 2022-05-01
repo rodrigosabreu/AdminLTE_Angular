@@ -19,6 +19,7 @@ import { FormEnderecoComponent } from './componentes/form-endereco/form-endereco
 import { LoadingComponent } from './componentes/loading/loading.component';
 import { PropostasComponent } from './propostas/propostas.component';
 import { ListaPropostasService } from '../Servicos/Proposta/lista-propostas.service';
+import { DataTablesModule } from 'angular-datatables';
 
 registerLocaleData(localPt);
 
@@ -37,6 +38,7 @@ registerLocaleData(localPt);
     HttpClientModule,
     Funcionalidades2RoutingModule,
     ReactiveFormsModule,
+    DataTablesModule
 
 
   ],

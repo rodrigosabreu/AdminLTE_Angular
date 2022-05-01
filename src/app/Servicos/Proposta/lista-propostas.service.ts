@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Proposta } from './proposta';
+import { Proposta } from 'src/app/models/proposta';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ListaPropostasService {
 
   constructor(private http: HttpClient) { }
 
-  obterProdutos(): Observable<Proposta[]>{
+  obterPropostas(): Observable<Proposta[]>{
 
     return this.http.get<Proposta[]>(this.UrlServiceV1 + "propostas");
 
