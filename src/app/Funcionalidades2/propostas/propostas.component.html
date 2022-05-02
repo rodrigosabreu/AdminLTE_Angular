@@ -1,13 +1,31 @@
+<div class="row" style="margin-bottom: 1em; margin-top: 1.333em;">
 
-<table>
-<tfoot>
-  <tr>
-    <th><input type="text" placeholder="Search ID" name="search-id"/></th>
-    <th><input type="text" placeholder="Search first name" name="search-first-name"/></th>
-    <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
-  </tr>
-</tfoot>
-</table>
+
+  <div class="col-md-2 col-xs-12" >
+    <label for="cboProposta">Proposta</label>
+    <input type="text"  class="form-control" name="cboProposta" placeholder="Busca por Proposta" (keyup)="buscarIdProposta($event.target)"/>
+  </div>
+
+
+  <div class="col-md-2 col-xs-12" id="divcboProduto">
+      <label for="txtProduto">Produto</label>
+      <select name="cboProduto" id="cboProduto" class="form-control" (change)="buscarProdutoProposta($event.target)">
+          <option value="todos">Todos</option>
+          <option [value]="produto" *ngFor="let produto of produtosSelect">{{produto}}</option>
+      </select>
+  </div>
+
+
+
+  <div class="col-md-3 col-xs-12" id="divcboStatusDetalhado">
+      <label for="txtBuscaStatusDetalhado">Status Detalhado</label>
+      <select name="cboStatusDetalhado" id="cboStatusDetalhado" class="form-control" (change)="buscarStatusDetalhado($event.target)">
+          <option value="todos">Todos</option>
+          <option [value]="status_detail" *ngFor="let status_detail of statusDetalhadoSelect">{{status_detail}}</option>
+      </select>
+  </div>
+
+</div>
 
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
   <thead>
@@ -44,4 +62,9 @@
       <td>{{ p.produto }}</td>
     </tr>
   </tbody>
+
+
+
 </table>
+
+
