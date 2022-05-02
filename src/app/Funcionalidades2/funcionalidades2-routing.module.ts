@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConsultaCepComponent } from './consulta-cep/consulta-cep.component';
 import { ConsultaCep2Component } from './consulta-cep2/consulta-cep2.component';
 import { PropostasComponent } from './propostas/propostas.component';
+import { Propostas2Component } from './propostas2/propostas2.component';
 import { SimulacaoImobiComponent } from './simulacao-imobi/simulacao-imobi.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
    { path: 'consulta-cep', component: ConsultaCepComponent },
    { path: 'consulta-cep2', component: ConsultaCep2Component },
    { path: 'lista-propostas', component: PropostasComponent },
+   { path: 'lista-propostas2', component: Propostas2Component },
 
 ];
 
