@@ -1,3 +1,79 @@
+
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <a (click)="mudarSelectStatusDetalhado('Aguardando Análise')" style="cursor: pointer;">
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{countDescricaoCreditoEnviado}}</h3>
+
+        <p>PROPOSTAS ENVIADAS</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <a href="#" class="small-box-footer">em financiamento - detalhes <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </a>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <a (click)="mudarSelectStatusDetalhado('Aprovada automaticamente')" style="cursor: pointer;">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{countDescricaoCreditoAprovado}}</h3>
+
+        <p>PROPOSTA APROVADAS</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+
+      <a href="#" class="small-box-footer">em financiamento - detalhes <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </a>
+  </div>
+
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+
+    <a (click)="mudarSelectStatusDetalhado('Aprovação Condicionada')" style="cursor: pointer;">
+    <!-- small box -->
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3>{{countDescricaoCreditoCondicionado}}</h3>
+
+        <p>PROPOSTAS CONDICIONADAS</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <a href="#" class="small-box-footer">em financiamento - detalhes <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </a>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+
+    <a (click)="mudarSelectStatusDetalhado('Proposta Recusada')" style="cursor: pointer;">
+    <!-- small box -->
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>{{countDescricaoCreditoRecusada}}</h3>
+
+        <p>PROPOSAS RECUSADAS</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+      <a href="#" class="small-box-footer">em financiamento - detalhes <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </a>
+  </div>
+  <!-- ./col -->
+</div>
+
 <div class="row" style="margin-bottom: 1em; margin-top: 1.333em;">
 
 
@@ -19,7 +95,7 @@
 
   <div class="col-md-3 col-xs-12" id="divcboStatusDetalhado">
       <label for="txtBuscaStatusDetalhado">Status Detalhado</label>
-      <select name="cboStatusDetalhado" id="cboStatusDetalhado" class="form-control" (change)="buscarStatusDetalhado($event.target)">
+      <select name="cboStatusDetalhado" id="cboStatusDetalhado" class="form-control" [ngModel]="cboStatusDetalhado" (change)="buscarStatusDetalhado($any($event.target).value)">
           <option value="todos">Todos</option>
           <option [value]="status_detail" *ngFor="let status_detail of statusDetalhadoSelect">{{status_detail}}</option>
       </select>

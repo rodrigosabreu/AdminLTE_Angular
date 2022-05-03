@@ -16,6 +16,14 @@ export class PropostasComponent implements OnDestroy, OnInit {
   public propostas: Proposta[] = [];
   produtosSelect: string[] = [];
   statusDetalhadoSelect: string[] = [];
+  statusDetalhadoSelected: string;
+
+  cboStatusDetalhado: string = 'todos';
+
+  countDescricaoCreditoEnviado: number = 0;
+  countDescricaoCreditoAprovado: number = 0;
+  countDescricaoCreditoCondicionado: number = 0;
+  countDescricaoCreditoRecusada: number = 0;
 
   //dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
@@ -73,26 +81,37 @@ export class PropostasComponent implements OnDestroy, OnInit {
   obterProdutos() {
     var produto: any = [];
 
-    this.propostas.forEach((e) => {
-      produto.push(e.produto);
+    this.propostas.forEach((data) => {
+      produto.push(data.produto);
     });
 
-    this.produtosSelect = produto.filter(function (este: string, i: string) {
-      return produto.indexOf(este) === i;
+    this.produtosSelect = produto.filter(function (data: string, i: string) {
+      return produto.indexOf(data) === i;
     });
     console.log(this.produtosSelect);
   }
 
-  buscarProdutoProposta(valor: any) {
-    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      if (valor.value == 'todos') dtInstance.columns(7).search('').draw();
-      else dtInstance.columns(7).search(valor.value).draw();
-    });
-  }
   statusDetalhadoSelectProduto() {
     var descricao_credito: any = [];
+
     this.propostas.forEach((data) => {
       descricao_credito.push(data.status.descricao_credito);
+
+      if (data.status.descricao_credito === 'Aguardando Análise') {
+        this.countDescricaoCreditoEnviado++;
+      }
+
+      if (data.status.descricao_credito === 'Aprovada automaticamente') {
+        this.countDescricaoCreditoAprovado++;
+      }
+
+      if (data.status.descricao_credito === 'Aprovação Condicionada') {
+        this.countDescricaoCreditoCondicionado++;
+      }
+
+      if (data.status.descricao_credito === 'Proposta Recusada') {
+        this.countDescricaoCreditoRecusada++;
+      }
     });
 
     this.statusDetalhadoSelect = descricao_credito.filter(function (
@@ -105,8 +124,22 @@ export class PropostasComponent implements OnDestroy, OnInit {
 
   buscarStatusDetalhado(valor: any) {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      if (valor.value == 'todos') dtInstance.columns(5).search('').draw();
-      else dtInstance.columns(5).search(valor.value).draw();
+      if (valor == 'todos') dtInstance.columns(5).search('').draw();
+      else dtInstance.columns(5).search(valor).draw();
+
+      this.cboStatusDetalhado = valor;
     });
+  }
+
+  buscarProdutoProposta(valor: any) {
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      if (valor.value == 'todos') dtInstance.columns(7).search('').draw();
+      else dtInstance.columns(7).search(valor.value).draw();
+    });
+  }
+
+  mudarSelectStatusDetalhado(valor: string) {
+    this.statusDetalhadoSelected = valor;
+    this.buscarStatusDetalhado(valor);
   }
 }
