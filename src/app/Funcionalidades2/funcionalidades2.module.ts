@@ -20,6 +20,7 @@ import { PropostasComponent } from './propostas/propostas.component';
 import { ListaPropostasService } from '../Servicos/Proposta/lista-propostas.service';
 import { DataTablesModule } from 'angular-datatables';
 import { Propostas2Component } from './propostas2/propostas2.component';
+import { NgBrazil } from 'ng-brazil';
 
 registerLocaleData(localPt);
 
@@ -39,7 +40,8 @@ registerLocaleData(localPt);
     HttpClientModule,
     Funcionalidades2RoutingModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    NgBrazil
 
 
   ],

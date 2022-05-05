@@ -13,29 +13,70 @@ export class PropostasComponent implements OnDestroy, OnInit {
   @ViewChild(DataTableDirective, { static: false })
   datatableElement: DataTableDirective;
 
-  public propostas: Proposta[] = [];
+  loading: boolean;
+
+  propostas: Proposta[] = [];
   produtosSelect: string[] = [];
   statusDetalhadoSelect: string[] = [];
-  statusDetalhadoSelected: string;
 
-  cboStatusDetalhado: string = 'todos';
+  cboStatusDetalhado: string;
+  statusDetalhadoSelected: string;
+  selecionadoProduto: string;
 
   countDescricaoCreditoEnviado: number = 0;
   countDescricaoCreditoAprovado: number = 0;
   countDescricaoCreditoCondicionado: number = 0;
   countDescricaoCreditoRecusada: number = 0;
 
+  somatorioValorFinanciadoEnviadas: number = 0;
+  somatorioValorFinanciadoAprovadas: number = 0;
+  somatorioValorFinanciadoCondicionadas: number = 0;
+  somatorioValorFinanciadoRecusadas: number = 0;
+
   //dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  //dtElement: any;
+  dtElement: DataTableDirective;
 
-  constructor(private listaPropostaService: ListaPropostasService) {}
+  constructor(private listaPropostaService: ListaPropostasService) {
+
+  }
 
   ngOnInit(): void {
+    this.carregarPropostas();
+  }
+
+
+  zeraCampos(){
+
+
+    this.selecionadoProduto = 'todos';
+    this.statusDetalhadoSelected = 'todos';
+
+
+    this.countDescricaoCreditoEnviado  = 0;
+    this.countDescricaoCreditoAprovado  = 0;
+    this.countDescricaoCreditoCondicionado  = 0;
+    this.countDescricaoCreditoRecusada  = 0;
+
+    this.somatorioValorFinanciadoEnviadas  = 0;
+    this.somatorioValorFinanciadoAprovadas  = 0;
+    this.somatorioValorFinanciadoCondicionadas  = 0;
+    this.somatorioValorFinanciadoRecusadas  = 0;
+
+  }
+
+  carregarPropostas() {
+
+
+    this.zeraCampos();
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
       order: [[2, 'desc']],
+      bDestroy: true,
       responsive: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json',
@@ -50,27 +91,29 @@ export class PropostasComponent implements OnDestroy, OnInit {
       ],
     };
 
-    this.listaPropostaService.obterPropostas().subscribe({
-      next: (p) => {
-        this.propostas = p;
-        console.log(p);
-        this.dtTrigger.next(null);
-      },
-      error: (e) => {
-        console.log(e);
-      },
-      complete: () => {
-        console.log('Requisição de propostas completada');
-        this.obterProdutos();
-        this.statusDetalhadoSelectProduto();
-      },
-    });
+    this.loading = true;
+
+    setTimeout(() => {
+      this.listaPropostaService.obterPropostas().subscribe({
+        next: (p) => {
+          this.propostas = p;
+          console.log(p);
+          this.dtTrigger.next(null);
+        },
+        error: (e) => {
+          console.log(e);
+          this.loading = false;
+        },
+        complete: () => {
+          console.log('Requisição de propostas completada');
+          this.obterProdutos();
+          this.statusDetalhadoSelectProduto();
+          this.loading = false;
+        },
+      });
+    }, 1000);
   }
 
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    this.dtTrigger.unsubscribe();
-  }
 
   buscarIdProposta(valor: any) {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -97,20 +140,29 @@ export class PropostasComponent implements OnDestroy, OnInit {
     this.propostas.forEach((data) => {
       descricao_credito.push(data.status.descricao_credito);
 
-      if (data.status.descricao_credito === 'Aguardando Análise') {
-        this.countDescricaoCreditoEnviado++;
-      }
+      this.countDescricaoCreditoEnviado++;
+      this.somatorioValorFinanciadoEnviadas =
+        this.somatorioValorFinanciadoEnviadas + data.valores.credito_solicitado;
 
       if (data.status.descricao_credito === 'Aprovada automaticamente') {
         this.countDescricaoCreditoAprovado++;
+        this.somatorioValorFinanciadoAprovadas =
+          this.somatorioValorFinanciadoAprovadas +
+          data.valores.credito_solicitado;
       }
 
       if (data.status.descricao_credito === 'Aprovação Condicionada') {
         this.countDescricaoCreditoCondicionado++;
+        this.somatorioValorFinanciadoCondicionadas =
+          this.somatorioValorFinanciadoCondicionadas +
+          data.valores.credito_solicitado;
       }
 
       if (data.status.descricao_credito === 'Proposta Recusada') {
         this.countDescricaoCreditoRecusada++;
+        this.somatorioValorFinanciadoRecusadas =
+          this.somatorioValorFinanciadoRecusadas +
+          data.valores.credito_solicitado;
       }
     });
 
@@ -127,7 +179,7 @@ export class PropostasComponent implements OnDestroy, OnInit {
       if (valor == 'todos') dtInstance.columns(5).search('').draw();
       else dtInstance.columns(5).search(valor).draw();
 
-      this.cboStatusDetalhado = valor;
+      this.statusDetalhadoSelected = valor;
     });
   }
 
@@ -135,11 +187,39 @@ export class PropostasComponent implements OnDestroy, OnInit {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       if (valor.value == 'todos') dtInstance.columns(7).search('').draw();
       else dtInstance.columns(7).search(valor.value).draw();
+
+      this.selecionadoProduto = valor.value;
     });
   }
 
   mudarSelectStatusDetalhado(valor: string) {
     this.statusDetalhadoSelected = valor;
     this.buscarStatusDetalhado(valor);
+  }
+
+  rerender() {
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      // Destroy the table first
+      dtInstance.destroy();
+      // Call the dtTrigger to rerender again
+      this.dtTrigger.next(null);
+
+
+
+
+
+
+
+    });
+
+    this.carregarPropostas();
+
+
+  }
+
+
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
   }
 }
