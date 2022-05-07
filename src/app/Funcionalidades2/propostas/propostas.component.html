@@ -156,15 +156,15 @@
   </div>
 
   <div class="col-md-2 col-xs-12">
-    <label for="txtBuscaStatusDetalhado">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-  </label>
-      <button type="button" class="btn btn-primary" (click)="rerender()">
-        Recarregar
+    <label for="txtBuscaStatusDetalhadosss">&nbsp;</label><br>
+      <button type="button" class="btn btn-primary btn-enviar" (click)="rerender()">
+        Recarregar Tabela
       </button>
 
   </div>
+
+
+
 </div>
 
 <table
@@ -204,7 +204,7 @@
         {{ p.valores.credito_solicitado | currency: "BRL":true:"1.2-2":"pt" }}
       </td>
       <td>{{ p.valores.taxa_juros_anual.toFixed(2).replace(".", ",") }}%</td>
-      <td>{{ p.status.descricao_credito }}</td>
+      <td [ngClass]="verificarStatus( p.status.descricao_credito)"><span>{{ p.status.descricao_credito }}</span></td>
       <td>{{ p.canal_entrada }}</td>
       <td>{{ p.produto }}</td>
     </tr>

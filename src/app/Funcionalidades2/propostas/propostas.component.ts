@@ -39,37 +39,28 @@ export class PropostasComponent implements OnDestroy, OnInit {
   //dtElement: any;
   dtElement: DataTableDirective;
 
-  constructor(private listaPropostaService: ListaPropostasService) {
-
-  }
+  constructor(private listaPropostaService: ListaPropostasService) {}
 
   ngOnInit(): void {
     this.carregarPropostas();
   }
 
-
-  zeraCampos(){
-
-
+  zeraCampos() {
     this.selecionadoProduto = 'todos';
     this.statusDetalhadoSelected = 'todos';
 
+    this.countDescricaoCreditoEnviado = 0;
+    this.countDescricaoCreditoAprovado = 0;
+    this.countDescricaoCreditoCondicionado = 0;
+    this.countDescricaoCreditoRecusada = 0;
 
-    this.countDescricaoCreditoEnviado  = 0;
-    this.countDescricaoCreditoAprovado  = 0;
-    this.countDescricaoCreditoCondicionado  = 0;
-    this.countDescricaoCreditoRecusada  = 0;
-
-    this.somatorioValorFinanciadoEnviadas  = 0;
-    this.somatorioValorFinanciadoAprovadas  = 0;
-    this.somatorioValorFinanciadoCondicionadas  = 0;
-    this.somatorioValorFinanciadoRecusadas  = 0;
-
+    this.somatorioValorFinanciadoEnviadas = 0;
+    this.somatorioValorFinanciadoAprovadas = 0;
+    this.somatorioValorFinanciadoCondicionadas = 0;
+    this.somatorioValorFinanciadoRecusadas = 0;
   }
 
   carregarPropostas() {
-
-
     this.zeraCampos();
 
     this.dtOptions = {
@@ -113,7 +104,6 @@ export class PropostasComponent implements OnDestroy, OnInit {
       });
     }, 1000);
   }
-
 
   buscarIdProposta(valor: any) {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -203,23 +193,22 @@ export class PropostasComponent implements OnDestroy, OnInit {
       dtInstance.destroy();
       // Call the dtTrigger to rerender again
       this.dtTrigger.next(null);
-
-
-
-
-
-
-
     });
 
     this.carregarPropostas();
-
-
   }
-
 
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+  }
+
+  verificarStatus(status: string): string {
+    if (status == 'Proposta Recusada') return 'vermelho';
+    if (status == 'Aprovada automaticamente') return 'verde';
+    if (status == 'Aprovação Condicionada') return 'verde';
+    if (status == 'Aguardando Análise') return 'amarelo';
+    if (status == 'Aguardando Aprovação do Pastão') return 'roxo';
+    else return 'cinza';
   }
 }
