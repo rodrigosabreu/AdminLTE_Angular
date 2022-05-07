@@ -37,7 +37,6 @@ registerLocaleData(localPt);
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     Funcionalidades2RoutingModule,
     ReactiveFormsModule,
     DataTablesModule,

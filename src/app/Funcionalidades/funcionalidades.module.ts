@@ -31,6 +31,7 @@ import { ProdutosComponentesComponent } from './produtos-componentes/produtos-co
 import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/produto-card-detalhe.component';
 import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
 import { JoComponent } from './jo/jo.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 registerLocaleData(localPt);
 
 
@@ -55,6 +56,7 @@ registerLocaleData(localPt);
     ProdutoCardDetalheComponent,
     ProdutoCountComponent,
     JoComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -65,6 +67,9 @@ registerLocaleData(localPt);
     NgBrazil,
     TextMaskModule,
     CustomFormsModule
+  ],
+  exports: [
+    NotFoundComponent
   ],
   providers: [ProdutoService],
 })

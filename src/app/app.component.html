@@ -233,6 +233,7 @@
           data-accordion="false"
         >
           <li class="nav-item menu-open">
+
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -241,55 +242,19 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a routerLink="home" class="nav-link">
+
+
+
+              <li class="nav-item" *ngFor="let m of menus">
+                <a [routerLinkActiveOptions]="{exact: m.exact}" routerLinkActive="active" routerLink="{{m.link}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home</p>
+                  <p>{{m.name}}</p>
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a routerLink="lista-propostas" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Propostas</p>
-                </a>
-              </li>
 
-              <li class="nav-item">
-                <a routerLink="data-binding" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataBinding</p>
-                </a>
-              </li>
 
-              <li class="nav-item">
-                <a routerLink="produtos" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Produtos</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="produtos-componentes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Produtos Componentizado</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="simulacao-cgi" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simulação CGI</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="simulacao-imobi" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simulação IMOBI</p>
-                </a>
-              </li>
-
+              <!--
               <li class="nav-item">
                 <a routerLink="promises" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -318,12 +283,14 @@
                 </a>
               </li>
 
+
               <li class="nav-item">
                 <a routerLink="cad" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Reactive Forms</p>
                 </a>
               </li>
+
 
               <li class="nav-item">
                 <a routerLink="cad2" class="nav-link">
@@ -332,62 +299,21 @@
                 </a>
               </li>
 
+
               <li class="nav-item">
                 <a routerLink="cad3" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Reactive Forms 3</p>
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a routerLink="consulta-cep" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consulta CEP</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="consulta-cep2" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consulta CEP 2</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="produto-lazy-loading" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Produtos Lazy Loading</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="jo" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jo</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+              -->
             </ul>
           </li>
+
+
+
+
+          <!--
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -618,6 +544,10 @@
               </li>
             </ul>
           </li>
+        -->
+
+
+        <!--
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
@@ -904,6 +834,10 @@
               </li>
             </ul>
           </li>
+        -->
+
+
+        <!--
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
@@ -1001,6 +935,7 @@
               <p>Informational</p>
             </a>
           </li>
+        -->
         </ul>
       </nav>
     </div>

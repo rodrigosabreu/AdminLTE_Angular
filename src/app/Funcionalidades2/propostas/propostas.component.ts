@@ -10,6 +10,7 @@ import { ListaPropostasService } from 'src/app/Servicos/Proposta/lista-propostas
   styleUrls: ['./propostas.component.css'],
 })
 export class PropostasComponent implements OnDestroy, OnInit {
+
   @ViewChild(DataTableDirective, { static: false })
   datatableElement: DataTableDirective;
 

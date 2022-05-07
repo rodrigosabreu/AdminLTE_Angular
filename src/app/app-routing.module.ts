@@ -1,10 +1,11 @@
-import { HomeComponent } from './Funcionalidades/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalhesComponent } from './Funcionalidades/home/detalhes/detalhes.component';
+import { NotFoundComponent } from './Funcionalidades/not-found/not-found.component';
 
 
 export const routes: Routes = [
+
+
   {
     path: '',
     redirectTo: 'home',
@@ -50,7 +51,9 @@ export const routes: Routes = [
         .then((m) => m.ProdutoModule),
   },
 
-
+  {
+    path: '**', component: NotFoundComponent
+  }
 
 ];
 
