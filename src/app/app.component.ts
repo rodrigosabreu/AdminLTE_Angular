@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Menu } from './Servicos/Menu/menu';
+import { Menu, Menus } from './Servicos/Menu/menu';
 import { MenusService } from './Servicos/Menu/menus.service';
 
 
@@ -29,7 +29,9 @@ export class AppComponent {
 
     this.carregarMenu();
 
-    interval(3000).subscribe(x => this.carregarMenu() );
+    interval(1000000000).subscribe(x => this.carregarMenu() );
+
+
 
 
 
@@ -40,8 +42,8 @@ export class AppComponent {
       this.menuService.obterMenus()
       .subscribe({
         next: (data) => {
-          this.menus = data;
-          console.log(data);
+          this.menus = data.menus;
+          console.log(data.menus);
         },
         error: (e) => {
           console.log(e);
