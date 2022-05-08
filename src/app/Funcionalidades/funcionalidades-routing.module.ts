@@ -15,23 +15,37 @@ import { PromisesComponent } from './promises/promises.component';
 import { Cad2Component } from './cad2/cad2.component';
 import { Cad3Component } from './cad3/cad3.component';
 import { ProdutosComponentesComponent } from './produtos-componentes/produtos-componentes.component';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { FuncionalidadeAppComponent } from './funcionalidade.app.component';
 
 const routes: Routes = [
+
+  { path: '', component: FuncionalidadeAppComponent,
+  children: [
+    { path: 'produtos-componentes', component: ProdutosComponentesComponent},
+    { path: 'produtos-componentes/editar/:id', component: EditarProdutoComponent },
+  ]
+  },
 
   { path: 'simulacao-cgi', component: SimulacaoCgiComponent },
   { path: 'data-binding', component: DataBindingComponent },
   { path: 'contato', component: ContatoComponent },
-  { path: 'produtos', component: ListaProdutoComponent },
-  { path: 'produtos-componentes', component: ProdutosComponentesComponent },
   { path: 'cad', component: CadComponent },
   { path: 'cad2', component: Cad2Component },
   { path: 'cad3', component: Cad3Component },
-  { path: 'produtos-detalhe/:id', component: ListaProdutoComponent },
   { path: 'observable-unsubcriber', component: ObservableUnsubcriberComponent },
   { path: 'observables', component: ObservablesComponent },
   { path: 'observables2', component: Observables2Component },
   { path: 'promises', component: PromisesComponent },
   { path: 'jo', component: JoComponent },
+
+  { path: 'produtos-detalhe/:id', component: ListaProdutoComponent },
+
+  { path: 'produtos', component: ListaProdutoComponent,
+    children: [{ path: 'editar/:id', component: EditarProdutoComponent }]
+  },
+
+
 
   {path: 'home', component: HomeComponent,
     children: [{

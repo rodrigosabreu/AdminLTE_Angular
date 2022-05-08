@@ -32,6 +32,8 @@ import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/
 import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
 import { JoComponent } from './jo/jo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { FuncionalidadeAppComponent } from './funcionalidade.app.component';
 registerLocaleData(localPt);
 
 
@@ -57,6 +59,8 @@ registerLocaleData(localPt);
     ProdutoCountComponent,
     JoComponent,
     NotFoundComponent,
+    EditarProdutoComponent,
+    FuncionalidadeAppComponent
   ],
   imports: [
     CommonModule,

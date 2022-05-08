@@ -1,22 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Menu, Menus } from './menu';
-
-import { catchError, map } from "rxjs/operators";
+import { Menu } from './menu';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenusService {
 
-  protected UrlServiceV1: string = "https://9ij2fvt9v8.execute-api.us-east-1.amazonaws.com/ap1/menu"
+  protected UrlServiceV1: string = "http://localhost:3000/"
 
   constructor(private http: HttpClient) { }
 
-  obterMenus(): Observable<Menus>{
+  obterMenus(): Observable<Menu[]>{
 
-    return this.http.get<Menus>(this.UrlServiceV1);
+    return this.http.get<Menu[]>(this.UrlServiceV1 + "menus");
 
   }
 
