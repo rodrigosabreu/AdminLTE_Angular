@@ -29,13 +29,13 @@ export class AppComponent {
       this.menuService.obterMenus().subscribe({
         next: (data) => {
           this.menus = data;
-          console.log(data);
+          //console.log(data);
         },
         error: (e) => {
           console.log(e);
         },
         complete: () => {
-          console.log('Requisição de propostas completada');
+          //console.log('Requisição de propostas completada');
         },
       });
     }, 1000);

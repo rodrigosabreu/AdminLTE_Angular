@@ -21,6 +21,7 @@ import { ListaPropostasService } from '../Servicos/Proposta/lista-propostas.serv
 import { DataTablesModule } from 'angular-datatables';
 import { Propostas2Component } from './propostas2/propostas2.component';
 import { NgBrazil } from 'ng-brazil';
+import { MenuComponent } from './menu/menu.component';
 
 registerLocaleData(localPt);
 
@@ -32,7 +33,8 @@ registerLocaleData(localPt);
     FormEnderecoComponent,
     LoadingComponent,
     PropostasComponent,
-    Propostas2Component
+    Propostas2Component,
+    MenuComponent
   ],
   imports: [
     CommonModule,
