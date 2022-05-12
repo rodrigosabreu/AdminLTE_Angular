@@ -22,6 +22,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { Propostas2Component } from './propostas2/propostas2.component';
 import { NgBrazil } from 'ng-brazil';
 import { MenuComponent } from './menu/menu.component';
+import { Menu2Component } from './menu2/menu2.component';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 registerLocaleData(localPt);
 
@@ -34,7 +36,9 @@ registerLocaleData(localPt);
     LoadingComponent,
     PropostasComponent,
     Propostas2Component,
-    MenuComponent
+    MenuComponent,
+    Menu2Component,
+    ModalComponent
   ],
   imports: [
     CommonModule,
