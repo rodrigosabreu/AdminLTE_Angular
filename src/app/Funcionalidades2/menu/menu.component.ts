@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   idMenuClicado: string;
 
   menu: Menu;
+  menuClicadoExcluir: Menu;
   menus: Menu[];
   menuForm: FormGroup;
 
@@ -58,10 +59,10 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  deletarMenu(id: string) {
+  deletarMenu() {
 
 
-    this.menuService.deletarMenu(id).subscribe({
+    this.menuService.deletarMenu(this.menuClicadoExcluir.id).subscribe({
       next: (data) => {},
       error: (e) => {},
       complete: () => {
@@ -83,5 +84,9 @@ export class MenuComponent implements OnInit {
         console.log('Requisição de propostas completada');
       },
     });
+  }
+
+  abriModalExcluir(menuClicado: Menu){
+    this.menuClicadoExcluir = menuClicado;
   }
 }

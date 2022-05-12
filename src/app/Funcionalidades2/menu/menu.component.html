@@ -2,7 +2,7 @@
 <div class="container main-container">
   <!-- Jumbotron Header -->
   <header class="my-4">
-    <h1 class="display-3"><b> Contato! </b></h1>
+    <h1 class="display-3"><b> Gerenciamento de MENU </b></h1>
   </header>
 
   <form class="mbr-form" [formGroup]="menuForm">
@@ -70,17 +70,23 @@
         <th>LINK</th>
         <th>ADMIN</th>
         <th>EXACT</th>
+        <th>EDITAR</th>
         <th>EXCLUIR</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of menus" (click)="carregarParaEdicao(item)">
+      <tr *ngFor="let item of menus" >
         <td>{{ item.name }}</td>
         <td>{{ item.link }}</td>
         <td>{{ item.admin }}</td>
         <td>{{ item.exact }}</td>
         <td align="center">
-          <button class="btn btn-danger" (click)="deletarMenu(item.id)">
+          <button class="btn btn-primary" (click)="carregarParaEdicao(item)">
+            X
+          </button>
+        </td>
+        <td align="center">
+          <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="abriModalExcluir(item)">
             X
           </button>
         </td>
@@ -89,3 +95,25 @@
   </table>
 </div>
 <br />
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deseja excluir?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir o menu <b>{{menuClicadoExcluir?.name}}</b> ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="deletarMenu()" data-dismiss="modal">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
