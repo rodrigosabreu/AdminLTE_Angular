@@ -190,9 +190,7 @@ export class PropostasComponent implements OnDestroy, OnInit {
 
   rerender() {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      // Destroy the table first
       dtInstance.destroy();
-      // Call the dtTrigger to rerender again
       this.dtTrigger.next(null);
     });
 
@@ -200,8 +198,8 @@ export class PropostasComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+    this.listaPropostaService.obterPropostas().subscribe();
   }
 
   verificarStatus(status: string): string {

@@ -198,7 +198,7 @@
   <tbody>
     <tr *ngFor="let p of propostas">
       <td>{{ p.id_proposta }}</td>
-      <td>***</td>
+      <td>{{ p.cpf_cliente}}</td>
       <td>{{ p.datas.envio | date: "dd/MM/yyyy" }}</td>
       <td>
         {{ p.valores.credito_solicitado | currency: "BRL":true:"1.2-2":"pt" }}
