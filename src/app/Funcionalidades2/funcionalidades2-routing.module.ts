@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultaCepComponent } from './consulta-cep/consulta-cep.component';
 import { ConsultaCep2Component } from './consulta-cep2/consulta-cep2.component';
+import { ConsultaCep3Component } from './consulta-cep3/consulta-cep3.component';
 import { MenuComponent } from './menu/menu.component';
 import { Menu2Component } from './menu2/menu2.component';
 import { PropostasComponent } from './propostas/propostas.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
    { path: 'simulacao-imobi', component: SimulacaoImobiComponent },
    { path: 'consulta-cep', component: ConsultaCepComponent },
    { path: 'consulta-cep2', component: ConsultaCep2Component },
+   { path: 'consulta-cep3', component: ConsultaCep3Component },
    { path: 'lista-propostas', component: PropostasComponent },
    { path: 'lista-propostas2', component: Propostas2Component },
    { path: 'menu', component: MenuComponent },

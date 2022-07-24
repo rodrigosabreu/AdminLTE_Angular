@@ -24,6 +24,8 @@ import { NgBrazil } from 'ng-brazil';
 import { MenuComponent } from './menu/menu.component';
 import { Menu2Component } from './menu2/menu2.component';
 import { ModalComponent } from './componentes/modal/modal.component';
+import { ConsultaCep3Component } from './consulta-cep3/consulta-cep3.component';
+import { Consulta_cep_externoComponent } from '../Funcionalidades/componentes/consulta_cep_externo/consulta_cep_externo.component';
 
 registerLocaleData(localPt);
 
@@ -32,13 +34,15 @@ registerLocaleData(localPt);
     SimulacaoImobiComponent,
     ConsultaCepComponent,
     ConsultaCep2Component,
+    ConsultaCep3Component,
     FormEnderecoComponent,
     LoadingComponent,
     PropostasComponent,
     Propostas2Component,
     MenuComponent,
     Menu2Component,
-    ModalComponent
+    ModalComponent,
+    Consulta_cep_externoComponent
   ],
   imports: [
     CommonModule,

@@ -34,6 +34,7 @@ import { JoComponent } from './jo/jo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 import { FuncionalidadeAppComponent } from './funcionalidade.app.component';
+import { Consulta_cep_externoComponent } from './componentes/consulta_cep_externo/consulta_cep_externo.component';
 registerLocaleData(localPt);
 
 
@@ -61,6 +62,7 @@ registerLocaleData(localPt);
     NotFoundComponent,
     EditarProdutoComponent,
     FuncionalidadeAppComponent
+
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,7 @@ registerLocaleData(localPt);
   ],
   exports: [
     NotFoundComponent
+
   ],
   providers: [ProdutoService],
 })
