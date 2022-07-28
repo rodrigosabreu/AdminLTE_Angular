@@ -1,3 +1,4 @@
+import { BehaviorSubjectComponent } from './behavior-subject/behavior-subject.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultaCepComponent } from './consulta-cep/consulta-cep.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
    { path: 'menu', component: MenuComponent },
    { path: 'menu2', component: Menu2Component },
    { path: 'ordens', component: OrdensComponent },
+   { path: 'BehaviorSubject', component: BehaviorSubjectComponent },
 
 ];
 

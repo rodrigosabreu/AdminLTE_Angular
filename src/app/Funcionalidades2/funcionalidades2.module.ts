@@ -27,6 +27,8 @@ import { ModalComponent } from './componentes/modal/modal.component';
 import { ConsultaCep3Component } from './consulta-cep3/consulta-cep3.component';
 import { Consulta_cep_externoComponent } from '../Funcionalidades/componentes/consulta_cep_externo/consulta_cep_externo.component';
 import { OrdensModule } from './ordens/ordens.module';
+import { BehaviorSubjectComponent } from './behavior-subject/behavior-subject.component';
+import { BehaviorSubjectModule } from './behavior-subject/behavior-subject.module';
 
 registerLocaleData(localPt);
 
@@ -43,7 +45,8 @@ registerLocaleData(localPt);
     MenuComponent,
     Menu2Component,
     ModalComponent,
-    Consulta_cep_externoComponent
+    Consulta_cep_externoComponent,
+    BehaviorSubjectComponent
   ],
   imports: [
     CommonModule,
@@ -52,9 +55,7 @@ registerLocaleData(localPt);
     ReactiveFormsModule,
     DataTablesModule,
     NgBrazil,
-
-
-
+    BehaviorSubjectModule
   ],
   exports :[
     SimulacaoImobiComponent
