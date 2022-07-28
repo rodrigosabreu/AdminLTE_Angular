@@ -1,0 +1,13 @@
+.example-form-field {
+   margin-right : 20px ;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 300px;
+  width: 50%;
+}
+
+.example-full-width {
+  width: 50%;
+}

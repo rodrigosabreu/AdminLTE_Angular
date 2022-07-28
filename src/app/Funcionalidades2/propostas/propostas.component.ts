@@ -42,6 +42,8 @@ export class PropostasComponent implements OnDestroy, OnInit {
 
   constructor(private listaPropostaService: ListaPropostasService) {}
 
+
+
   ngOnInit(): void {
     this.carregarPropostas();
   }
@@ -63,6 +65,7 @@ export class PropostasComponent implements OnDestroy, OnInit {
 
   carregarPropostas() {
     this.zeraCampos();
+
 
     this.dtOptions = {
       pagingType: 'full_numbers',

@@ -5,14 +5,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ProdutoModule } from './lazy-loading/produto.module';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule],
+    HttpClientModule,
+    BrowserAnimationsModule,
+
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatPaginatorModule
+
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

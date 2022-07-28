@@ -26,6 +26,7 @@ import { Menu2Component } from './menu2/menu2.component';
 import { ModalComponent } from './componentes/modal/modal.component';
 import { ConsultaCep3Component } from './consulta-cep3/consulta-cep3.component';
 import { Consulta_cep_externoComponent } from '../Funcionalidades/componentes/consulta_cep_externo/consulta_cep_externo.component';
+import { OrdensModule } from './ordens/ordens.module';
 
 registerLocaleData(localPt);
 
@@ -50,7 +51,8 @@ registerLocaleData(localPt);
     Funcionalidades2RoutingModule,
     ReactiveFormsModule,
     DataTablesModule,
-    NgBrazil
+    NgBrazil,
+
 
 
   ],
